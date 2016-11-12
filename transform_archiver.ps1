@@ -53,6 +53,9 @@ Here are the Task Scheduler settings from the Actions tab using a server-locked
           Program/script:  PowerShell.exe
 Add arguments (optional):  -ExecutionPolicy Bypass .\transform_archiver.ps1 
      Start in (optional):  C:\DrillingInfo\Transform\5.1.0
+
+* modify the .xml writer bit for whatever server you have.
+
 #>
 
 
@@ -113,7 +116,7 @@ foreach($repo in $live_repos)
   }
 }
 '<backups rootDir="' + $periodic_backup_dir + '">'     > $backup_xml_file
-'  <mySQL host="OKC1TRA0001.SDRGE.NET" port="3306">'  >> $backup_xml_file
+'  <mySQL host="MYTRASRV.XYZ.NET" port="3306">'       >> $backup_xml_file
 $backup_xml_repos = $backup_xml_repos | select -Unique
 foreach ($row in $backup_xml_repos)
 {
